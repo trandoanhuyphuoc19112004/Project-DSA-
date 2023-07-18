@@ -10,3 +10,9 @@ void radixSort(int array[], int n , unsigned long long& time, unsigned long long
 void selectionSort(int a[], int n, unsigned long long& time, unsigned long long& comparison); 
 void shakerSort(int a[], int n, unsigned long long& time, unsigned long long& comparison); 
 void shellSort(int arr[], int size, unsigned long long& time, unsigned long long& comparison); 
+void heapsort(int arr[], int n, unsigned long long& time, unsigned long long& comparison); 
+void max_heapify(int arr[], int size, int i, unsigned long long& comparison); 
+void merge(int a[], int left, int mid, int right, unsigned long long& comparison);
+void mergeSort(int a[], int begin, int end, unsigned long long& time, unsigned long long& comparison); 
+int partition(int arr[], int left, int right, unsigned long long& comparison); 
+void quicksort(int arr[], int left, int right, unsigned long long& time, unsigned long long& comparison); 
