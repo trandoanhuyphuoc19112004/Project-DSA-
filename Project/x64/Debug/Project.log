@@ -1,4 +1,9 @@
-﻿  Main.cpp
+﻿  Bubblesort.cpp
+  InsertionSort.cpp
   Quicksort.cpp
+  RadixSort.cpp
+  Selectionsort.cpp
+  Shakersort.cpp
+  Shellsort.cpp
   Generating Code...
-  Project.vcxproj -> C:\Users\Admin\source\repos\Project-DSA-\x64\Debug\Project.exe
+  Project.vcxproj -> C:\Users\phuoc\Source\Repos\Project-DSA-\x64\Debug\Project.exe

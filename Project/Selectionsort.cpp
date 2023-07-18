@@ -1,11 +1,9 @@
 #include"Header.h"
 
 void selectionSort(int a[], int n, unsigned long long& time, unsigned long long& comparison) {
+	auto start = chrono::high_resolution_clock::now();
 	time = 0;
 	comparison = 0;
-	auto start = chrono::high_resolution_clock::now();
-	comparison = 0;
-
 	for (int i = 0; ++comparison && i < n - 1; i++) {
 		int min = i;
 

@@ -17,7 +17,7 @@ int main()
 	int* countingsort_arr;
 	int* flashsort_arr;
 	int* arr;
-	copyAndGenerateData(arr, size, 0, 1, selectionsort_arr, insertionsort_arr, bubblesort_arr, heapsort_arr, mergesort_arr, quicksort_arr, radixsort_arr, shakersort_arr, shellsort_arr, countingsort_arr, flashsort_arr);
+	copyAndGenerateData(arr, size, 0, 0, selectionsort_arr, insertionsort_arr, bubblesort_arr, heapsort_arr, mergesort_arr, quicksort_arr, radixsort_arr, shakersort_arr, shellsort_arr, countingsort_arr, flashsort_arr);
 	// Display output
 	
 	cout << ">Comparision and time using<" << endl;
@@ -27,10 +27,12 @@ int main()
 	cout << "Comparision: " << cp << endl;
 	cout << "Time using (micro second): " << time << endl;
 	cout << "============================" << endl;
+
 	insertionSort(insertionsort_arr, size, time, cp);
 	cout << "Insertion sort" << endl;
 	cout << "Comparision: " << cp << endl;
 	cout << "Time using (micro second): " << time << endl;
+
 	cout << "============================" << endl;
 	bubbleSort(bubblesort_arr, size, time, cp); 
 	cout << "Bubble sort" << endl;
@@ -43,46 +45,59 @@ int main()
 	cout << "Comparision: " << cp << endl;
 	cout << "Time using (micro second): " << time << endl;
 	cout << "============================" << endl;
-	mergeSort(mergesort_arr,0, size - 1, time, cp); 
+
+	time = 0; 
+	cp = 0;
+	auto start = chrono::high_resolution_clock::now();
+	mergeSort(mergesort_arr,0, size - 1,  cp); 
+	auto end = chrono::high_resolution_clock::now();
+	time = chrono::duration_cast<chrono::microseconds>(end - start).count();
 	cout << "Merge sort" << endl;
 	cout << "Comparision: " << cp << endl;
 	cout << "Time using (micro second): " << time << endl;
 	cout << "============================" << endl;
+
 	time = 0; 
-	auto start = chrono::high_resolution_clock::now();
 	cp = 0;
+	auto go = chrono::high_resolution_clock::now();
 	quickSort(quicksort_arr, 0, size - 1, cp); 
-	auto end = chrono::high_resolution_clock::now();
-	time = chrono::duration_cast<chrono::microseconds>(end - start).count();
+	auto finish = chrono::high_resolution_clock::now();
+	time = chrono::duration_cast<chrono::microseconds>(finish - go).count();
 	cout << "quick sort" << endl;
 	cout << "comparision: " << cp << endl;
 	cout << "time using (micro second): " << time << endl;
 	cout << "============================" << endl;
+
 	radixSort(flashsort_arr, size, time, cp);
 	cout << "Radix sort" << endl;
 	cout << "Comparision: " << cp << endl;
 	cout << "Time using (micro second): " << time << endl;
 	cout << "============================" << endl;
+
 	shakerSort(shakersort_arr, size, time, cp); 
 	cout << "Shaker sort" << endl;
 	cout << "Comparision: " << cp << endl;
 	cout << "Time using (micro second): " << time << endl;
 	cout << "============================" << endl;
+
 	shellSort(shellsort_arr, size, time, cp); 
 	cout << "Shell sort" << endl;
 	cout << "Comparision: " << cp << endl;
 	cout << "Time using (micro second): " << time << endl;
 	cout << "============================" << endl;
+
 	countingsort(countingsort_arr, size, time, cp); 
 	cout << "Counting sort" << endl;
 	cout << "Comparision: " << cp << endl;
 	cout << "Time using (micro second): " << time << endl;
 	cout << "============================" << endl;
+
 	flashSort(flashsort_arr, size, time, cp); 
 	cout << "Flash sort" << endl;
 	cout << "Comparision: " << cp << endl;
 	cout << "Time using (micro second): " << time << endl;
 	cout << "============================" << endl;
+
 	deleteData(selectionsort_arr);
 	deleteData(insertionsort_arr);
 	deleteData(bubblesort_arr);

@@ -2,9 +2,9 @@
 // Ref: https://www.programiz.com/dsa/counting-sort
 void countingsort(int array[], int n, unsigned long long &time,  unsigned long long  &comparison)
 {
+    auto start = chrono::high_resolution_clock::now();
     time = 0;
     comparison = 0;
-    auto start = chrono::high_resolution_clock::now();;
     int max = array[0];
 
     for (int i = 1; ++comparison && i < n; i++) {
@@ -42,8 +42,8 @@ void countingsort(int array[], int n, unsigned long long &time,  unsigned long l
     for (int i = 0; ++comparison && i < n; i++) {
         array[i] = ptr_output[i];
     }
-    auto end = chrono::high_resolution_clock::now();
-    time = chrono :: duration_cast<chrono::microseconds> (end - start).count();
     delete[] ptr_count; 
     delete[] ptr_output; 
+    auto end = chrono::high_resolution_clock::now();
+    time = chrono::duration_cast<chrono::microseconds> (end - start).count();
 }

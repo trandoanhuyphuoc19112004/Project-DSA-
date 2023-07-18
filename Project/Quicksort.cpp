@@ -20,9 +20,9 @@ void quickSort(int arr[], int left, int right, unsigned long long& comparison)
 		}
 	};
 	/* recursion */
-	if (left < j)
+	if (++comparison && left < j)
 		quickSort(arr, left, j, comparison);
-	if (i < right)
+	if (++comparison && i < right)
 		quickSort(arr, i, right, comparison);
 }
 
