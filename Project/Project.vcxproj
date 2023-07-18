@@ -25,6 +25,7 @@
     <ClCompile Include="Flashsort.cpp" />
     <ClCompile Include="Heapsort.cpp" />
     <ClCompile Include="InsertionSort.cpp" />
+    <ClCompile Include="Main.cpp" />
     <ClCompile Include="Mergesort.cpp" />
     <ClCompile Include="Quicksort.cpp" />
     <ClCompile Include="RadixSort.cpp" />

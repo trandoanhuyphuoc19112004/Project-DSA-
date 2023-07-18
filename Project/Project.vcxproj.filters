@@ -51,6 +51,9 @@
     <ClCompile Include="Quicksort.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header.h">
