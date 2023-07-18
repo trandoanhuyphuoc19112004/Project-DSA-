@@ -1,6 +1,7 @@
 #include "Header.h"
 
 void bubbleSort(int a[], int n, unsigned long long& time, unsigned long long& comparison) {
+	time = 0;
 	auto start = chrono::high_resolution_clock::now();
 	comparison = 0;
 

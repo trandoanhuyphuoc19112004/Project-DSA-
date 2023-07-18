@@ -2,6 +2,7 @@
 // Ref: https://www.programiz.com/dsa/counting-sort
 void countingsort(int array[], int n, unsigned long long &time,  unsigned long long  &comparison)
 {
+    time = 0;
     auto start = chrono::high_resolution_clock::now();;
     int max = array[0];
 

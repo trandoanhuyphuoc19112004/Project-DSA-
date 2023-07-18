@@ -3,6 +3,7 @@
 // Ref: https://github.com/HaiDuc0147/sortingAlgorithm/blob/main/reportSort/Sort.cpp
 void flashSort(int array[], int n, unsigned long long &time, unsigned long long &comparisons)
 {
+	time = 0;
 	int minVal = array[0];
 	int max = 0;
 	int m = int(0.45 * n); // So lop 
