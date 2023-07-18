@@ -2,17 +2,31 @@
 
 void shakerSort(int a[], int n, unsigned long long& time, unsigned long long& comparison) {
 	time = 0;
-	int L = 0, R = n - 1;
+	comparison = 0;
 	auto start = chrono::high_resolution_clock::now();
-	while (++comparison && L < R) {
-		for (int i = L; ++comparison && i < R; ++i)
+	int Left = 0;
+	int Right = n - 1;
+	int k = 0;
+	while (++comparison && Left < Right)
+	{
+		for (int i = Left; ++comparison && i < Right; i++)
+		{
 			if (++comparison && a[i] > a[i + 1])
+			{
 				swap(a[i], a[i + 1]);
-		--R;
-		for (int i = R - 1; ++comparison && i >= L; --i)
-			if (++comparison && a[i] > a[i + 1])
-				swap(a[i], a[i + 1]);
-		++L;
+				k = i;
+			}
+		}
+		Right = k;
+		for (int i = Right; ++comparison && i > Left; i--)
+		{
+			if (++comparison && a[i] < a[i - 1])
+			{
+				swap(a[i], a[i - 1]);
+				k = i;
+			}
+		}
+		Left = k;
 	}
 	auto end = chrono::high_resolution_clock::now();
 	time = chrono::duration_cast<chrono::microseconds>(end - start).count();

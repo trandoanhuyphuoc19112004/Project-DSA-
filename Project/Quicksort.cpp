@@ -6,12 +6,12 @@ void quickSort(int arr[], int left, int right, unsigned long long& comparison)
 	int tmp;
 	int pivot = arr[(left + right) / 2];
 	/* partition */
-	while (i <= j) {
-		while (arr[i] < pivot)
+	while (++ comparison && i <= j) {
+		while (++comparison && arr[i] < pivot)
 			i++;
-		while (arr[j] > pivot)
+		while (++comparison && arr[j] > pivot)
 			j--;
-		if (i <= j) {
+		if (++comparison && i <= j) {
 			tmp = arr[i];
 			arr[i] = arr[j];
 			arr[j] = tmp;

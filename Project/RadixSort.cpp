@@ -11,6 +11,7 @@ int getMax(int a[], int n, unsigned long long& cnt)
 void radixSort(int array[], int n, unsigned long long& time, unsigned long long& comparison) 
 {
 	time = 0;
+	comparison = 0;
 	auto start = chrono::high_resolution_clock::now();
 	// Get maximum element
 	unsigned long long one = 0;

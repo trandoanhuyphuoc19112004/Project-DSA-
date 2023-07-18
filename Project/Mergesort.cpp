@@ -38,6 +38,7 @@ void merge(int a[], int left, int mid, int right, unsigned long long& comparison
 
 void mergeSort(int a[], int begin, int end, unsigned long long& time, unsigned long long& comparison) {
 	time = 0;
+	comparison = 0;
 	auto start = chrono::high_resolution_clock::now();
 	if (++comparison && begin >= end) return;
 	int mid = begin + (end - begin) / 2;

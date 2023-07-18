@@ -17,7 +17,7 @@ int main()
 	int* countingsort_arr;
 	int* flashsort_arr;
 	int* arr;
-	copyAndGenerateData(arr, size, 5, 1, selectionsort_arr, insertionsort_arr, bubblesort_arr, heapsort_arr, mergesort_arr, quicksort_arr, radixsort_arr, shakersort_arr, shellsort_arr, countingsort_arr, flashsort_arr);
+	copyAndGenerateData(arr, size, 0, 1, selectionsort_arr, insertionsort_arr, bubblesort_arr, heapsort_arr, mergesort_arr, quicksort_arr, radixsort_arr, shakersort_arr, shellsort_arr, countingsort_arr, flashsort_arr);
 	// Display output
 	
 	cout << ">Comparision and time using<" << endl;
@@ -50,6 +50,7 @@ int main()
 	cout << "============================" << endl;
 	time = 0; 
 	auto start = chrono::high_resolution_clock::now();
+	cp = 0;
 	quickSort(quicksort_arr, 0, size - 1, cp); 
 	auto end = chrono::high_resolution_clock::now();
 	time = chrono::duration_cast<chrono::microseconds>(end - start).count();
