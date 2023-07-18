@@ -1,24 +1,29 @@
 #include"Header.h"
-
-int partition(int arr[], int left, int right, unsigned long long& comparison) {
-	int pivot = right;
-	right--;
-	while (++comparison && left <= right) {
-		while (++comparison && arr[left] < arr[pivot] && ++comparison && left <= right) left++;
-		while (++comparison && arr[right] > arr[pivot] && ++comparison && left <= right) right--;
-		if (++comparison && left <= right) {
-			swap(arr[left], arr[right]);
-			left++;
-			right--;
+// Ref: https://www.algolist.net/Algorithms/Sorting/Quicksort
+void quickSort(int arr[], int left, int right, unsigned long long& comparison) 
+{
+	int i = left, j = right;
+	int tmp;
+	int pivot = arr[(left + right) / 2];
+	/* partition */
+	while (i <= j) {
+		while (arr[i] < pivot)
+			i++;
+		while (arr[j] > pivot)
+			j--;
+		if (i <= j) {
+			tmp = arr[i];
+			arr[i] = arr[j];
+			arr[j] = tmp;
+			i++;
+			j--;
 		}
-	}
-	swap(arr[left], arr[pivot]);
-	return left;
+	};
+	/* recursion */
+	if (left < j)
+		quickSort(arr, left, j, comparison);
+	if (i < right)
+		quickSort(arr, i, right, comparison);
 }
-void quicksort(int arr[], int left, int right, unsigned long long& comparison) {
-	if (++comparison && left >= right) return;
-	int pivot = partition(arr, left, right, comparison);
-	quicksort(arr, left, pivot - 1,  comparison);
-	quicksort(arr, pivot + 1, right, comparison);
-	
-}
+
+

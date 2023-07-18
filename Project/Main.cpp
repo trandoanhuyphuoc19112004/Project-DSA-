@@ -17,7 +17,7 @@ int main()
 	int* countingsort_arr;
 	int* flashsort_arr;
 	int* arr;
-	copyAndGenerateData(arr, size, 1, 1, selectionsort_arr, insertionsort_arr, bubblesort_arr, heapsort_arr, mergesort_arr, quicksort_arr, radixsort_arr, shakersort_arr, shellsort_arr, countingsort_arr, flashsort_arr);
+	copyAndGenerateData(arr, size, 5, 1, selectionsort_arr, insertionsort_arr, bubblesort_arr, heapsort_arr, mergesort_arr, quicksort_arr, radixsort_arr, shakersort_arr, shellsort_arr, countingsort_arr, flashsort_arr);
 	// Display output
 	
 	cout << ">Comparision and time using<" << endl;
@@ -50,12 +50,12 @@ int main()
 	cout << "============================" << endl;
 	time = 0; 
 	auto start = chrono::high_resolution_clock::now();
-	quicksort(quicksort_arr, 0, size - 1, cp); 
+	quickSort(quicksort_arr, 0, size - 1, cp); 
 	auto end = chrono::high_resolution_clock::now();
 	time = chrono::duration_cast<chrono::microseconds>(end - start).count();
-	cout << "Quick sort" << endl;
-	cout << "Comparision: " << cp << endl;
-	cout << "Time using (micro second): " << time << endl;
+	cout << "quick sort" << endl;
+	cout << "comparision: " << cp << endl;
+	cout << "time using (micro second): " << time << endl;
 	cout << "============================" << endl;
 	radixSort(flashsort_arr, size, time, cp);
 	cout << "Radix sort" << endl;
