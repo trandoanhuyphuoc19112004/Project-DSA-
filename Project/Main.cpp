@@ -17,7 +17,7 @@ int main()
 	int* countingsort_arr;
 	int* flashsort_arr;
 	int* arr;
-	copyAndGenerateData(arr, size, 0, 0, selectionsort_arr, insertionsort_arr, bubblesort_arr, heapsort_arr, mergesort_arr, quicksort_arr, radixsort_arr, shakersort_arr, shellsort_arr, countingsort_arr, flashsort_arr);
+	copyAndGenerateData(arr, size, 0, 1, selectionsort_arr, insertionsort_arr, bubblesort_arr, heapsort_arr, mergesort_arr, quicksort_arr, radixsort_arr, shakersort_arr, shellsort_arr, countingsort_arr, flashsort_arr);
 	// Display output
 	
 	cout << ">Comparision and time using<" << endl;
@@ -40,32 +40,22 @@ int main()
 	cout << "Time using (micro second): " << time << endl;
 	cout << "============================" << endl;
 	
-	heapsort(heapsort_arr, size, time, cp); 
+	heapSort(heapsort_arr, size, time, cp); 
 	cout << "Heap sort" << endl;
 	cout << "Comparision: " << cp << endl;
 	cout << "Time using (micro second): " << time << endl;
 	cout << "============================" << endl;
 
-	time = 0; 
-	cp = 0;
-	auto start = chrono::high_resolution_clock::now();
-	mergeSort(mergesort_arr,0, size - 1,  cp); 
-	auto end = chrono::high_resolution_clock::now();
-	time = chrono::duration_cast<chrono::microseconds>(end - start).count();
+	mergeSort(mergesort_arr, size, time, cp);
 	cout << "Merge sort" << endl;
 	cout << "Comparision: " << cp << endl;
 	cout << "Time using (micro second): " << time << endl;
 	cout << "============================" << endl;
 
-	time = 0; 
-	cp = 0;
-	auto go = chrono::high_resolution_clock::now();
-	quickSort(quicksort_arr, 0, size - 1, cp); 
-	auto finish = chrono::high_resolution_clock::now();
-	time = chrono::duration_cast<chrono::microseconds>(finish - go).count();
-	cout << "quick sort" << endl;
-	cout << "comparision: " << cp << endl;
-	cout << "time using (micro second): " << time << endl;
+	quickSort(quicksort_arr, size, time, cp); 
+	cout << "Quick sort" << endl;
+	cout << "Comparision: " << cp << endl;
+	cout << "Time using (micro second): " << time << endl;
 	cout << "============================" << endl;
 
 	radixSort(flashsort_arr, size, time, cp);
@@ -86,7 +76,7 @@ int main()
 	cout << "Time using (micro second): " << time << endl;
 	cout << "============================" << endl;
 
-	countingsort(countingsort_arr, size, time, cp); 
+	countingSort(countingsort_arr, size, time, cp); 
 	cout << "Counting sort" << endl;
 	cout << "Comparision: " << cp << endl;
 	cout << "Time using (micro second): " << time << endl;

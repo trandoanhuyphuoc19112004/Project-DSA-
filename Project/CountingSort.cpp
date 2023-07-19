@@ -1,6 +1,6 @@
 #include "Header.h"
 // Ref: https://www.programiz.com/dsa/counting-sort
-void countingsort(int array[], int n, unsigned long long &time,  unsigned long long  &comparison)
+void countingSort(int array[], int n, unsigned long long &time, unsigned long long &comparison)
 {
     auto start = chrono::high_resolution_clock::now();
     time = 0;

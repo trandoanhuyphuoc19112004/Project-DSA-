@@ -35,11 +35,21 @@ void merge(int a[], int left, int mid, int right, unsigned long long& comparison
 	delete[] c;
 }
 
-void mergeSort(int a[], int begin, int end, unsigned long long& comparison)
+void mergeSortCompare(int a[], int begin, int end, unsigned long long& comparison)
 {
 	if (++comparison && begin >= end) return;
 	int mid = begin + (end - begin) / 2;
-	mergeSort(a, begin, mid, comparison);
-	mergeSort(a, mid + 1, end, comparison);
+	mergeSortCompare(a, begin, mid, comparison);
+	mergeSortCompare(a, mid + 1, end, comparison);
 	merge(a, begin, mid, end, comparison);
+}
+
+void mergeSort(int a[], int n, unsigned long long& time, unsigned long long& comparison)
+{
+	time = 0;
+	comparison = 0;
+	auto start = chrono::high_resolution_clock::now();
+	mergeSortCompare(a, 0, n - 1, comparison);
+	auto end = chrono::high_resolution_clock::now();
+	time = chrono::duration_cast<chrono::microseconds>(end - start).count();
 }

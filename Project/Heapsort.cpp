@@ -1,6 +1,6 @@
 #include"Header.h"
 
-void heapsort(int arr[], int n, unsigned long long& time, unsigned long long& comparison) {
+void heapSort(int arr[], int n, unsigned long long& time, unsigned long long& comparison) {
 	auto start = chrono::high_resolution_clock::now();
 	time = 0;
 	comparison = 0;

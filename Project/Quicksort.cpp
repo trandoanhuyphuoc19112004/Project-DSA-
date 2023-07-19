@@ -1,6 +1,6 @@
 #include"Header.h"
 // Ref: https://www.algolist.net/Algorithms/Sorting/Quicksort
-void quickSort(int arr[], int left, int right, unsigned long long& comparison) 
+void quickSortCompare(int arr[], int left, int right, unsigned long long& comparison) 
 {
 	int i = left, j = right;
 	int tmp;
@@ -21,9 +21,18 @@ void quickSort(int arr[], int left, int right, unsigned long long& comparison)
 	};
 	/* recursion */
 	if (++comparison && left < j)
-		quickSort(arr, left, j, comparison);
+		quickSortCompare(arr, left, j, comparison);
 	if (++comparison && i < right)
-		quickSort(arr, i, right, comparison);
+		quickSortCompare(arr, i, right, comparison);
 }
 
+void quickSort(int arr[], int n, unsigned long long& time, unsigned long long& comparison)
+{
+	time = 0;
+	comparison = 0;
+	auto start = chrono::high_resolution_clock::now();
+	quickSortCompare(arr, 0, n - 1, comparison);
+	auto end = chrono::high_resolution_clock::now();
+	time = chrono::duration_cast<chrono::microseconds>(end - start).count();
+}
 

@@ -20,7 +20,7 @@ void radixSort(int array[], int n, unsigned long long& time, unsigned long long&
 	// Apply counting sort to sort elements based on place value.
 	unsigned long long temp_nothing = 0; 
 	for (int place = 1; ++comparison && max / place > 0; place *= 10)
-		countingsort(array, n, temp_nothing,  one);
+		countingSort(array, n, temp_nothing,  one);
 	comparison = comparison  + one;
 	auto end = chrono::high_resolution_clock::now();
 	time = chrono::duration_cast<chrono::microseconds>(end - start).count();

@@ -1,9 +1,5 @@
-﻿  Bubblesort.cpp
-  InsertionSort.cpp
-  Quicksort.cpp
-  RadixSort.cpp
+﻿  RadixSort.cpp
   Selectionsort.cpp
-  Shakersort.cpp
   Shellsort.cpp
   Generating Code...
-  Project.vcxproj -> C:\Users\phuoc\Source\Repos\Project-DSA-\x64\Debug\Project.exe
+  Project.vcxproj -> C:\Users\Admin\Desktop\Project-DSA-\x64\Debug\Project.exe
