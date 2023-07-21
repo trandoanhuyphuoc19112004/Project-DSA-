@@ -11,7 +11,6 @@ void countingSort(int array[], int n, unsigned long long &time, unsigned long lo
         if (++comparison && array[i] > max)
         {
             max = array[i];
-            
         }
     }
     int* ptr_count = new int[max + 1]; 
