@@ -1,5 +1,1 @@
-﻿  RadixSort.cpp
-  Selectionsort.cpp
-  Shellsort.cpp
-  Generating Code...
-  Project.vcxproj -> C:\Users\Admin\Desktop\Project-DSA-\x64\Debug\Project.exe
+﻿C:\Users\Admin\Project-DSA-\Project\Project.vcxproj : error MSB4025: The project file could not be loaded. Could not find file 'C:\Users\Admin\Project-DSA-\Project\Project.vcxproj'.

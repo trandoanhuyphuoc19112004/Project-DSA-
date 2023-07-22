@@ -159,3 +159,119 @@ void Comparison_inputsize_order(string name_algo1, string name_algo2, int inputs
     delete [] arr1; 
     delete [] arr2; 
 }
+
+int getOutputParameterId(char* output_parameter){
+    if(!strcmp(output_parameter,"-comp")){
+        return 0;
+    }if(!strcmp(output_parameter,"-time")){
+        return 1;
+    }if(!strcmp(output_parameter,"-both")){
+        return 2;
+    }
+    return -1;
+}
+void sort_AllData_withAlgo(string name_algo,int input_size,char* output_parameter){
+    unsigned long long time1,time2,time3,time4;
+    unsigned long long compare1,compare2,compare3,compare4;
+    int algoID = getAlgoId(name_algo.c_str());
+
+    int output_Index = getOutputParameterId(output_parameter);
+    cout << output_Index << endl;
+    if(output_Index == -1){
+        cout << "Unvalid output parameter!!!" << endl;
+        return;
+    }
+
+    int * arr1 = NULL;
+    int * arr2 = NULL;
+    int * arr3 = NULL;
+    int * arr4 = NULL;
+
+    copyAndGenerateData(arr1,input_size,0);
+    copyAndGenerateData(arr2,input_size,1);
+    copyAndGenerateData(arr3,input_size,2);
+    copyAndGenerateData(arr4,input_size,3);
+
+    (*SORT_ALGO[algoID])(arr1, input_size, time1, compare1);
+    (*SORT_ALGO[algoID])(arr2, input_size, time2, compare2);
+    (*SORT_ALGO[algoID])(arr3, input_size, time3, compare3);
+    (*SORT_ALGO[algoID])(arr4, input_size, time4, compare4);
+
+    if(output_Index == 1){
+        cout << "ALGORITHM MODE:" << endl;
+        cout << "Algorithm: " << name_algo << endl;
+        cout << "Input size: " << input_size << endl << endl;
+
+        cout << "Input order: Randomize" << endl;
+        cout << "---------------------------" << endl;
+        cout << "Running time (if required): " <<  time1 << endl;
+        cout << "Comparison (if required): "  << endl<< endl;
+
+        cout << "Input order: Nearly Sorted" << endl;
+        cout << "---------------------------" << endl;
+        cout << "Running time (if required): " <<  time4 << endl;
+        cout << "Comparison (if required): "  << endl << endl;
+
+        cout << "Input order: Sorted" << endl;
+        cout << "---------------------------" << endl;
+        cout << "Running time (if required): " <<  time2 << endl;
+        cout << "Comparison (if required): "  << endl << endl;
+
+        cout << "Input order: Reversed" << endl;
+        cout << "---------------------------" << endl;
+        cout << "Running time (if required): " <<  time3 << endl;
+        cout << "Comparison (if required): "  << endl << endl;
+    }else if(output_Index ==0){
+        cout << "ALGORITHM MODE:" << endl;
+        cout << "Algorithm: " << name_algo << endl;
+        cout << "Input size: " << input_size << endl << endl;
+
+        cout << "Input order: Randomize" << endl;
+        cout << "---------------------------" << endl;
+        cout << "Running time (if required): " << endl;
+        cout << "Comparison (if required): " << compare1 << endl << endl;
+
+        cout << "Input order: Nearly Sorted" << endl;
+        cout << "---------------------------" << endl;
+        cout << "Running time (if required): " << endl;
+        cout << "Comparison (if required): " << compare4 << endl << endl;
+
+        cout << "Input order: Sorted" << endl;
+        cout << "---------------------------" << endl;
+        cout << "Running time (if required): "  << endl;
+        cout << "Comparison (if required): " << compare2 << endl << endl;
+
+        cout << "Input order: Reversed" << endl;
+        cout << "---------------------------" << endl;
+        cout << "Running time (if required): "  << endl;
+        cout << "Comparison (if required): " << compare3 << endl << endl;
+    }else if(output_Index == 2){
+        cout << "ALGORITHM MODE:" << endl;
+        cout << "Algorithm: " << name_algo << endl;
+        cout << "Input size: " << input_size << endl << endl;
+
+        cout << "Input order: Randomize" << endl;
+        cout << "---------------------------" << endl;
+        cout << "Running time (if required): " <<  time1 << endl;
+        cout << "Comparison (if required): " << compare1 << endl << endl;
+
+        cout << "Input order: Nearly Sorted" << endl;
+        cout << "---------------------------" << endl;
+        cout << "Running time (if required): " <<  time4 << endl;
+        cout << "Comparison (if required): " << compare4 << endl << endl;
+
+        cout << "Input order: Sorted" << endl;
+        cout << "---------------------------" << endl;
+        cout << "Running time (if required): " <<  time2 << endl;
+        cout << "Comparison (if required): " << compare2 << endl << endl;
+
+        cout << "Input order: Reversed" << endl;
+        cout << "---------------------------" << endl;
+        cout << "Running time (if required): " <<  time3 << endl;
+        cout << "Comparison (if required): " << compare3 << endl << endl;
+    }
+    delete [] arr1;
+    delete [] arr2;
+    delete [] arr3;
+    delete [] arr4;
+}

@@ -12,7 +12,16 @@ int main(int argc, char **argv)
 		flag = false; 
 	}
 	else if (argc == 5)
-	{
+	{	
+		if(!strcmp(argv[1],"-a") && (!strcmp(argv[4],"-comp") || !strcmp(argv[4],"-both") || !strcmp(argv[4], "-time"))){
+			string name_algo1 = argv[2];
+			int size = stoi(argv[3]);
+			char* output_Parameter = argv[4];
+			flag = checkAlgorithm1(arrAlgorithm,11,name_algo1);
+			if(flag && size <= 1000000){
+				sort_AllData_withAlgo(name_algo1,size,output_Parameter);
+			}
+		}
 		// Comparison mode
 		if(!strcmp(argv[1], "-c"))
 		{

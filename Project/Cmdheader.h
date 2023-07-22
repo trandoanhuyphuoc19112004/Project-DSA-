@@ -14,3 +14,6 @@ int getinputorderId(char* order_name);
 
 void Comparison_inputfile(const char* filename, string name_algo1, string name_algo2); 
 void Comparison_inputsize_order(string name_algo1, string name_algo2, int inputsize, char* inputorder); 
+
+int getOutputParameterId(char* output_parameter);
+void sort_AllData_withAlgo(string name_algo,int input_size,char* output_parameter);
