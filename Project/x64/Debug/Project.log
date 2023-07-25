@@ -1,5 +1,6 @@
-﻿  RadixSort.cpp
-  Selectionsort.cpp
-  Shellsort.cpp
+﻿  Copydata.cpp
+  DataGenerator.cpp
+  Main.cpp
+  cmdheader.cpp
   Generating Code...
-  Project.vcxproj -> C:\Users\Admin\Desktop\Project-DSA-\x64\Debug\Project.exe
+  Project.vcxproj -> D:\Study\HK3\Cấu trúc dữ liệu và giải thuật\Project_sub\x64\Debug\Project.exe

@@ -20,6 +20,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Bubblesort.cpp" />
+    <ClCompile Include="cmdheader.cpp" />
+    <ClCompile Include="Copydata.cpp" />
     <ClCompile Include="CountingSort.cpp" />
     <ClCompile Include="DataGenerator.cpp" />
     <ClCompile Include="Flashsort.cpp" />
@@ -34,6 +36,8 @@
     <ClCompile Include="Shellsort.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Cmdheader.h" />
+    <ClInclude Include="Copydata.h" />
     <ClInclude Include="Header.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

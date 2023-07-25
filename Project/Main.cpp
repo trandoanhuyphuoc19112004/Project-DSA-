@@ -13,8 +13,31 @@ int main(int argc, char **argv)
 	}
 	else if (argc == 5)
 	{
-		// Comparison mode
-		if(!strcmp(argv[1], "-c"))
+		if (!strcmp(argv[1], "-a")) {
+			//Command Line 3
+			if (!strcmp(argv[4], "-comp") || !strcmp(argv[4], "-both") || !strcmp(argv[4], "-time")) {
+				string name_algo1 = argv[2];
+				int size = stoi(argv[3]);
+				char* output_Parameter = argv[4];
+				flag = checkAlgorithm1(arrAlgorithm, 11, name_algo1);
+				if (flag && size <= 1000000) {
+					Command_Line_3(name_algo1, size, output_Parameter);
+				}
+			}
+			//Command Line 1
+			else {
+				if (argv[3][strlen(argv[3] - 1)] >= 'a' && argv[3][strlen(argv[3] - 1)] <= 'z') {
+					string name_algo = argv[2];
+					char* output_param = argv[4];
+					const char* filename = (const char*)argv[3];
+					flag = checkAlgorithm1(arrAlgorithm, 11, name_algo);
+					if (flag)
+						Command_Line_1(filename, name_algo, output_param);
+				}
+			}
+		}
+		// Command Line 4
+		else if(!strcmp(argv[1], "-c"))
 		{
 			string name_algo1 = argv[2]; 
 			string name_algo2 = argv[3];
@@ -22,13 +45,13 @@ int main(int argc, char **argv)
 			flag = checkAlgorithm2(arrAlgorithm, 11, name_algo1, name_algo2);
 			if (flag)
 			{
-				Comparison_inputfile(filename, name_algo1, name_algo2); 
+				Command_Line_4(filename, name_algo1, name_algo2); 
 			}
 		}
 	}
 	else if (argc == 6)
 	{
-		// Comparison mode
+		//Command Line 5
 		if(!strcmp(argv[1], "-c"))
 		{
 			string name_algo1 = argv[2]; 
@@ -37,7 +60,16 @@ int main(int argc, char **argv)
 			flag = checkAlgorithm2(arrAlgorithm, 11, name_algo1, name_algo2);
 			if (flag && size < 1000000)
 			{
-				Comparison_inputsize_order(name_algo1, name_algo2, size, argv[5]);
+				Command_Line_5(name_algo1, name_algo2, size, argv[5]);
+			}
+		}
+		//Command Line 2
+		else if (!strcmp(argv[1], "-a")) {
+			string name_algo = argv[2];
+			int size = stoi(argv[3]);
+			flag = checkAlgorithm1(arrAlgorithm, 11, name_algo);
+			if (flag && size < 1000000) {
+				Command_Line_2(name_algo, size, argv[4], argv[5]);
 			}
 		}
 
