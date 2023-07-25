@@ -87,12 +87,32 @@ int getinputorderId(char* order_name)
     return -1;
 }
 
+int getoutputparamID(char* param) {
+    if (strcmp(param, "-comp") == 0)
+        return 0;
+    else if (strcmp(param, "-time") == 0)
+        return 1;
+    else if (strcmp(param, "-both") == 0)
+        return 2;
+    else
+        return -1;
+}
+
+string printInputOrder(int order_index) {
+    switch (order_index) {
+    case 0: return "Randomize";
+    case 1: return "Sorted";
+    case 2: return "Reversed";
+    case 3: return "Nearly Sorted";
+    }
+}
+
 void Command_Line_1(const char* filename, string name_algo, char* output_param) {
     unsigned long long time, comparison;
     int algoID = getAlgoId(name_algo.c_str());
     int* arr = nullptr;
     int size = 0;
-
+    int param_index = getoutputparamID(output_param);
     cout << "ALGORITHM MODE:" << endl;
     cout << "Algorithm: " << name_algo << endl;
     bool flag = readfile(filename, arr, size);
@@ -103,14 +123,14 @@ void Command_Line_1(const char* filename, string name_algo, char* output_param) 
     cout << "Input file: " << filename << endl;
     cout << "Input size: " << size << endl;
     cout << "-------------------------" << endl;
-    if (strcmp(output_param, "-both") == 0) {
+    if (param_index==2) {
         cout << "Running time: " << time << endl;
         cout << "Comparison: " << comparison << endl;
     }
-    else if (strcmp(output_param, "-time") == 0) {
+    else if (param_index == 1) {
         cout << "Running time: " << time << endl;
     }
-    else if (strcmp(output_param, "-comp") == 0) {
+    else if (param_index == 0) {
         cout << "Comparison: " << comparison << endl;
     }
 
@@ -122,6 +142,7 @@ void Command_Line_2(string name_algo, int inputSize, char* inputOrder, char* out
     int* arr = nullptr;
     int algoID = getAlgoId(name_algo.c_str());
     int order_index = getinputorderId(inputOrder);
+    int param_index = getoutputparamID(output_param);
     if (order_index == -1)
     {
         cout << "Unvalid order" << endl;
@@ -132,16 +153,17 @@ void Command_Line_2(string name_algo, int inputSize, char* inputOrder, char* out
     cout << "Algorithm: " << name_algo << endl;
     (*SORT_ALGO[algoID])(arr, inputSize, time, compare);
     cout << "Input size: " << inputSize << endl;
-    cout << "Input order: " << inputOrder << endl;
+    cout << "Input order: "<<printInputOrder(order_index)<<endl;
+    //printInputOrder(order_index);
     cout << "-------------------------" << endl;
-    if (strcmp(output_param, "-both") == 0) {
+    if (param_index == 2) {
         cout << "Running time: " << time << endl;
         cout << "Comparison: " << compare << endl;
     }
-    else if (strcmp(output_param, "-time") == 0) {
+    else if (param_index == 1) {
         cout << "Running time: " << time << endl;
     }
-    else if (strcmp(output_param, "-comp") == 0) {
+    else if (param_index == 0) {
         cout << "Comparison: " << compare << endl;
     }
     delete[] arr;
@@ -152,11 +174,11 @@ void Command_Line_3(string name_algo, int input_size, char* output_parameter) {
     unsigned long long compare1, compare2, compare3, compare4;
     int algoID = getAlgoId(name_algo.c_str());
     int output_Index = 0;
-    if (output_parameter == "-comp")
+    if (strcmp(output_parameter, "-comp")==0)
         output_Index = 0;
-    else if (output_parameter == "-time")
+    else if (strcmp(output_parameter, "-time")==0)
         output_Index = 1;
-    else if (output_parameter == "both")
+    else if (strcmp(output_parameter, "-both")==0)
         output_Index = 2;
     else
         output_Index = -1;
@@ -285,10 +307,11 @@ void Command_Line_4(const char* filename, string name_algo1, string name_algo2)
     (*SORT_ALGO[algoID1])(arr1, size1, time1, compare1);
     (*SORT_ALGO[algoID2])(arr2, size2, time2, compare2);
 
-    cout << "Input size:" << size1 << endl;
+    cout << "Input size: " << size1 << endl;
+    cout << "Input file: " << filename << endl;
     cout << "-------------------------" << endl;
-    cout << "Running time:" << time1 << "|" << time2 << endl;
-    cout << "Comparisons:" << compare1 << "|" << compare2 << endl;
+    cout << "Running time: " << time1 << "|" << time2 << endl;
+    cout << "Comparisons: " << compare1 << "|" << compare2 << endl;
 
     delete[] arr1;
     delete[] arr2;
@@ -325,7 +348,7 @@ void Command_Line_5(string name_algo1, string name_algo2, int inputsize, char* i
     cout << "Algorithm: " << name_algo1 << "|" << name_algo2 << endl;
     cout << "Input size:" << inputsize << endl;
 
-    cout << "Input order:" << inputorder << endl;
+    cout << "Input order: " << printInputOrder(order_index) << endl;
     cout << "-------------------------" << endl;
     cout << "Running time:" << time1 << "|" << time2 << endl;
     cout << "Comparisons:" << compare1 << "|" << compare2 << endl;

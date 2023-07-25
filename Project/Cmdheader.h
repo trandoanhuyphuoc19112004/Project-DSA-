@@ -13,6 +13,10 @@ bool checkAlgorithm2(string name[], int number,  string inputname1, string input
 //Get ID for algorithm and input order
 int getAlgoId(const char* algo_name); 
 int getinputorderId(char* order_name);
+int getoutputparamID(char* param);
+
+//Function for print information
+string printInputOrder1(int order_index);
 
 //Command line
 void Command_Line_1(const char* filename, string name_algo, char* output_param);
