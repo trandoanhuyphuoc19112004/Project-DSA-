@@ -150,6 +150,7 @@ void Command_Line_2(string name_algo, int inputSize, char* inputOrder, char* out
         return;
     }
     copyAndGenerateData(arr, inputSize, order_index);
+    savefile("input.txt", arr, inputSize);
     cout << "ALGORITHM MODE:" << endl;
     cout << "Algorithm: " << name_algo << endl;
     (*SORT_ALGO[algoID])(arr, inputSize, time, compare);
