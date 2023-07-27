@@ -193,9 +193,13 @@ void Command_Line_3(string name_algo, int input_size, char* output_parameter) {
     int* arr4 = NULL;
 
     copyAndGenerateData(arr1, input_size, 0);
+    savefile("input_1.txt", arr1, input_size);
     copyAndGenerateData(arr2, input_size, 1);
+    savefile("input_2.txt", arr2, input_size);
     copyAndGenerateData(arr3, input_size, 2);
+    savefile("input_3.txt", arr3, input_size);
     copyAndGenerateData(arr4, input_size, 3);
+    savefile("input_4.txt", arr4, input_size);
 
     (*SORT_ALGO[algoID])(arr1, input_size, time1, compare1);
     (*SORT_ALGO[algoID])(arr2, input_size, time2, compare2);
