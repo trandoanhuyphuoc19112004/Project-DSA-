@@ -133,7 +133,7 @@ void Command_Line_1(const char* filename, string name_algo, char* output_param) 
     else if (param_index == 0) {
         cout << "Comparison: " << comparison << endl;
     }
-
+    savefile("output.txt", arr, size);
     delete[] arr;
 }
 

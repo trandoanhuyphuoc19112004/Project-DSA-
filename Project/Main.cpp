@@ -15,9 +15,9 @@ int main(int argc, char **argv)
 	{
 		if (!strcmp(argv[1], "-a")) 
 		{
-			//Command Line 3
 			if (!strcmp(argv[4], "-comp") || !strcmp(argv[4], "-both") || !strcmp(argv[4], "-time")) 
 			{
+				//Command Line 1
 				if (argv[3][strlen(argv[3] - 1)] >= 'a' && argv[3][strlen(argv[3] - 1)] <= 'z') 
 				{
 					string name_algo = argv[2];
@@ -27,6 +27,7 @@ int main(int argc, char **argv)
 					if (flag)
 						Command_Line_1(filename, name_algo, output_param);
 				}
+				//Command Line 3
 				else {
 					string name_algo1 = argv[2];
 					int size = stoi(argv[3]);
