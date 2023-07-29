@@ -106,7 +106,7 @@ void savefile(const char* filename, int *arr, int size)
 	}
 	fileout << size << endl; 
 	for (int i = 0; i < size; i++)
-		fileout << arr[i] << endl; 
+		fileout << arr[i] << " ";
 	fileout.close(); 
 }
 

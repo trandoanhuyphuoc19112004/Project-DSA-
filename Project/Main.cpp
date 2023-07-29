@@ -18,7 +18,7 @@ int main(int argc, char **argv)
 			if (!strcmp(argv[4], "-comp") || !strcmp(argv[4], "-both") || !strcmp(argv[4], "-time")) 
 			{
 				//Command Line 1
-				if (argv[3][strlen(argv[3] - 1)] >= 'a' && argv[3][strlen(argv[3] - 1)] <= 'z') 
+				if (argv[3][strlen(argv[3] - 1)] < '0' || argv[3][strlen(argv[3] - 1)] > '9') 
 				{
 					string name_algo = argv[2];
 					char* output_param = argv[4];
